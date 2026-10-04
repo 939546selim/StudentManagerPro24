@@ -133,46 +133,46 @@ fun StudentScreen(
                 Card(
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(12.dp),
-                        horizontalArrangement =
-                            Arrangement.SpaceBetween
-                    ) {
-                        Column {
-                            Text(
-                                text = student.name,
-                                style = MaterialTheme.typography.titleMedium
-                            )
-                            Text("Age: ${student.age}")
-                            Text("Course: ${student.course}")
-                        }
-                    }
 //                    Row(
 //                        modifier = Modifier
 //                            .fillMaxWidth()
 //                            .padding(12.dp),
-//                        horizontalArrangement = Arrangement.SpaceBetween
+//                        horizontalArrangement =
+//                            Arrangement.SpaceBetween
 //                    ) {
 //                        Column {
 //                            Text(
 //                                text = student.name,
 //                                style = MaterialTheme.typography.titleMedium
 //                            )
-//
 //                            Text("Age: ${student.age}")
 //                            Text("Course: ${student.course}")
 //                        }
-//
-//                        Button(
-//                            onClick = {
-//                                viewModel.deleteStudent(student.id)
-//                            }
-//                        ) {
-//                            Text("Delete")
-//                        }
 //                    }
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(12.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Column {
+                            Text(
+                                text = student.name,
+                                style = MaterialTheme.typography.titleMedium
+                            )
+
+                            Text("Age: ${student.age}")
+                            Text("Course: ${student.course}")
+                        }
+
+                        Button(
+                            onClick = {
+                                viewModel.deleteStudent(student.id)
+                            }
+                        ) {
+                            Text("Delete")
+                        }
+                    }
                 }
             }
         }
