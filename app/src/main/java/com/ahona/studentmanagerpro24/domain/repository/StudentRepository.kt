@@ -10,5 +10,7 @@ interface StudentRepository {
 
     fun updateStudent(student: Student)
 
-    fun deleteStudent(studentId: Int)
+//    fun deleteStudent(studentId: Int)
+
+    fun deleteStudent(studentId: Int): Result<Unit>
 }

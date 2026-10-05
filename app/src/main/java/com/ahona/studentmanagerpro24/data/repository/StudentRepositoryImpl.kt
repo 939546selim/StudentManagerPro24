@@ -20,7 +20,11 @@ class StudentRepositoryImpl(
         localDataSource.updateStudent(student)
     }
 
-    override fun deleteStudent(studentId: Int) {
-        localDataSource.deleteStudent(studentId)
+//    override fun deleteStudent(studentId: Int) {
+//        localDataSource.deleteStudent(studentId)
+//    }
+
+    override fun deleteStudent(studentId: Int): Result<Unit> {
+        return localDataSource.deleteStudent(studentId)
     }
 }
