@@ -68,22 +68,33 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModelProvider
+import com.ahona.studentmanagerpro24.data.local.DatabaseProvider
 import com.ahona.studentmanagerpro24.data.repository.StudentRepositoryImpl
 import com.ahona.studentmanagerpro24.data.source.StudentLocalDataSource
 import com.ahona.studentmanagerpro24.domain.repository.StudentRepository
 import com.ahona.studentmanagerpro24.user_interface.StudentScreen
 import com.ahona.studentmanagerpro24.viewmodel.StudentViewModel
 import com.ahona.studentmanagerpro24.viewmodel.StudentViewModelFactory
+import com.ahona.studentmanagerpro24.data.source.StudentRoomDataSource
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val localDataSource = StudentLocalDataSource()
+//        val localDataSource = StudentLocalDataSource()
+        val database = DatabaseProvider.getDatabase(this)
+
+        val roomDataSource = StudentRoomDataSource(
+            database.studentDao()
+
+        )
 
         val repository: StudentRepository =
-            StudentRepositoryImpl(localDataSource)
+            StudentRepositoryImpl(roomDataSource)
+
+//        val repository: StudentRepository =
+//            StudentRepositoryImpl(localDataSource)
 
         val factory = StudentViewModelFactory(repository)
 
